@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMR Internet Services - Ultra Speed Reliable Internet</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-blue: #2563eb;
+            --primary-dark: #1e40af;
+            --accent-teal: #0d9488;
+            --accent-purple: #8b5cf6;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --background: #ffffff;
+            --border: #e5e7eb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--background);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .network-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(13, 148, 136, 0.05) 0%, transparent 50%);
+            z-index: -1;
+        }
+
+        /* Header Styles */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .staff-login {
+            background: var(--primary-blue);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .staff-login:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Customer Actions Section */
+        .customer-actions {
+            padding: 3rem 2rem;
+            background: white;
+            text-align: center;
+        }
+
+        .actions-grid {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .action-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            flex: 1;
+            min-width: 180px;
+            max-width: 220px;
+        }
+
+        .action-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .action-icon {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .action-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: var(--text-dark);
+        }
+
+        .btn-action {
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .btn-action:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Plans Section */
+        .plans {
+            padding: 4rem 2rem;
+            background: var(--background);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        .plans-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .plan-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            position: relative;
+            flex: 1;
+            min-width: 180px;
+            max-width: 220px;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .plan-card.best-value {
+            border-color: var(--accent-teal);
+            transform: scale(1.05);
+        }
+
+        .best-value-badge {
+            background: var(--accent-teal);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .plan-speed {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .plan-price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .plan-price span {
+            font-size: 1rem;
+            color: var(--text-light);
+            font-weight: 400;
+        }
+
+        .btn-select {
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .btn-select:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 4rem 2rem;
+            background: #f8fafc;
+        }
+
+        .features-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .feature-desc {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        /* Requirements Section */
+        .requirements {
+            padding: 4rem 2rem;
+            background: white;
+            text-align: center;
+        }
+
+        .requirements-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .requirements-list {
+            background: #f8fafc;
+            padding: 2.5rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            border: 1px solid var(--border);
+        }
+
+        .requirements-list h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .requirement-item {
+            padding: 0.8rem 0;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .no-charges {
+            color: var(--accent-teal);
+            font-weight: 700;
+            margin-top: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: var(--text-dark);
+            font-weight: 500;
+            padding: 1rem 1.5rem;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .contact-item i {
+            color: var(--primary-blue);
+        }
+
+        /* Staff Portal */
+        .staff-portal {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-blue));
+            color: white;
+            text-align: center;
+        }
+
+        .staff-portal-content {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .btn-staff {
+            background: white;
+            color: var(--primary-blue);
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .btn-staff:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-light);
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        .btn-submit {
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .btn-submit:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Staff Pages */
+        .staff-page {
+            display: none;
+            padding: 6rem 2rem 4rem;
+            background: #f8fafc;
+            min-height: 100vh;
+        }
+
+        .staff-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .staff-nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .staff-nav-btn {
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .staff-nav-btn:hover {
+            background: var(--primary-dark);
+        }
+
+        .staff-nav-btn.active {
+            background: var(--accent-teal);
+        }
+
+        /* New styles for embedded forms */
+        .embedded-form-modal {
+            max-width: 90%;
+            width: 90%;
+            height: 90vh;
+        }
+        
+        .embedded-form-container {
+            width: 100%;
+            height: 80vh;
+            border: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .plans-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+            .plan-card {
+                max-width: 100%;
+                width: 100%;
+            }
+            .plan-card.best-value {
+                transform: none;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .actions-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+            .action-card {
+                max-width: 100%;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Elements -->
+    <div class="network-bg"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-bolt"></i>
+                EMR INTERNET SERVICES
+            </div>
+            <nav class="nav-links">
+                <a href="#plans">Internet Plans</a>
+                <a href="#coverage">Coverage</a>
+                <a href="#apply">Apply Now</a>
+                <a href="#support">Support</a>
+                <a href="#" class="staff-login" onclick="showStaffLogin()">
+                    <i class="fas fa-lock"></i> Staff Portal
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Public Website -->
+    <div id="public-website">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>STAY CONNECTED WITH CONFIDENCE</h1>
+                <p>Experience blazing-fast internet with EMR Internet Services - where reliability meets ultra-speed for your home and business</p>
+            </div>
+        </section>
+
+        <!-- Customer Actions Section - UPDATED WITH YOUR FORM IDs -->
+        <section class="customer-actions">
+            <h2 class="section-title">Customer Services</h2>
+            <p class="section-subtitle">Quick access to our most requested services</p>
+            <div class="actions-grid">
+                <div class="action-card">
+                    <div class="action-icon">🚀</div>
+                    <h3 class="action-title">Apply for Internet</h3>
+                    <button class="btn-action" onclick="openGoogleForm('1F-S_wOZ5ZAaR6r7vRNwlecJlb8ZOeBqxJ86xPlutIBc')">APPLY NOW</button>
+                </div>
+                <div class="action-card">
+                    <div class="action-icon">🔧</div>
+                    <h3 class="action-title">Request Repair</h3>
+                    <button class="btn-action" onclick="openGoogleForm('1v3OZPqX6lN4Jd82guQRpoTQZZbVplnC1EmTi5K1pxUE')">REQUEST REPAIR</button>
+                </div>
+                <div class="action-card">
+                    <div class="action-icon">💳</div>
+                    <h3 class="action-title">Submit Proof of Payment</h3>
+                    <button class="btn-action" onclick="openGoogleForm('1uokUlKL3zmuufCfg47FjEBSWO326Vg487s7XCXyzUW0')">SUBMIT PAYMENT</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Plans Section -->
+        <section id="plans" class="plans">
+            <h2 class="section-title">BEST VALUE</h2>
+            <p class="section-subtitle">Choose the perfect plan for your needs</p>
+            <div class="plans-grid">
+                <!-- Plan 1 -->
+                <div class="plan-card">
+                    <div class="plan-speed">55MBPS</div>
+                    <div class="plan-price">₱999<span>/month</span></div>
+                    <button class="btn-select" onclick="openGoogleForm('1F-S_wOZ5ZAaR6r7vRNwlecJlb8ZOeBqxJ86xPlutIBc')">SELECT PLAN</button>
+                </div>
+                <!-- Plan 2 - Best Value -->
+                <div class="plan-card best-value">
+                    <div class="best-value-badge">MOST POPULAR</div>
+                    <div class="plan-speed">105MBPS</div>
+                    <div class="plan-price">₱1,299<span>/month</span></div>
+                    <button class="btn-select" onclick="openGoogleForm('1F-S_wOZ5ZAaR6r7vRNwlecJlb8ZOeBqxJ86xPlutIBc')">SELECT PLAN</button>
+                </div>
+                <!-- Plan 3 -->
+                <div class="plan-card">
+                    <div class="plan-speed">155MBPS</div>
+                    <div class="plan-price">₱1,499<span>/month</span></div>
+                    <button class="btn-select" onclick="openGoogleForm('1F-S_wOZ5ZAaR6r7vRNwlecJlb8ZOeBqxJ86xPlutIBc')">SELECT PLAN</button>
+                </div>
+                <!-- Plan 4 -->
+                <div class="plan-card">
+                    <div class="plan-speed">205MBPS</div>
+                    <div class="plan-price">₱1,999<span>/month</span></div>
+                    <button class="btn-select" onclick="openGoogleForm('1F-S_wOZ5ZAaR6r7vRNwlecJlb8ZOeBqxJ86xPlutIBc')">SELECT PLAN</button>
+                </div>
+                <!-- Plan 5 -->
+                <div class="plan-card">
+                    <div class="plan-speed">305MBPS</div>
+                    <div class="plan-price">₱2,499<span>/month</span></div>
+                    <button class="btn-select" onclick="openGoogleForm('1F-S_wOZ5ZAaR6r7vRNwlecJlb8ZOeBqxJ86xPlutIBc')">SELECT PLAN</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <h2 class="section-title">Perfect For All Your Needs</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎮</div>
+                    <h3 class="feature-title">Gaming</h3>
+                    <p class="feature-desc">Lag-free gaming experience</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💼</div>
+                    <h3 class="feature-title">Work From Home</h3>
+                    <p class="feature-desc">Stable video calls & uploads</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛒</div>
+                    <h3 class="feature-title">Online Selling</h3>
+                    <p class="feature-desc">Fast product uploads</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎓</div>
+                    <h3 class="feature-title">Online Classes</h3>
+                    <p class="feature-desc">Buffer-free learning</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Requirements Section -->
+        <section class="requirements">
+            <h2 class="section-title">Application Requirements</h2>
+            <div class="requirements-content">
+                <div class="requirements-list">
+                    <h3>What You'll Need</h3>
+                    <div class="requirement-item">• One (1) Valid ID</div>
+                    <div class="requirement-item">• One (1) Proof of Billing</div>
+                    <div class="no-charges">• No Hidden Charges • 1 Year Lock-in Period</div>
+                </div>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>0965-654-3278</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>emr.internetservices@gmail.com</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Staff Portal CTA -->
+        <section class="staff-portal">
+            <div class="staff-portal-content">
+                <h2><i class="fas fa-lock"></i> EMR Staff Portal</h2>
+                <p>Secure access for company agents and managers</p>
+                <button class="btn-staff" onclick="showStaffLogin()">Access Staff Dashboard</button>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2024 EMR Internet Services. Connecting You to What Matters.</p>
+        </footer>
+    </div>
+
+    <!-- Staff Portal (Enhanced with your specific forms) -->
+    <div id="staff-portal" class="staff-page" style="display: none;">
+        <div class="staff-header">
+            <h1><i class="fas fa-lock"></i> EMR Staff Portal</h1>
+            <p>Internal Management System</p>
+        </div>
+        
+        <div class="staff-nav">
+            <button class="staff-nav-btn active" onclick="showStaffPage('applications')">Applications</button>
+            <button class="staff-nav-btn" onclick="showStaffPage('repairs')">Repair Management</button>
+            <button class="staff-nav-btn" onclick="showStaffPage('billing')">Billing & Collections</button>
+            <button class="staff-nav-btn" onclick="showStaffPage('updates')">Status Updates</button>
+            <button class="staff-nav-btn" onclick="showStaffPage('reports')">Reports Dashboard</button>
+            <button class="staff-nav-btn" onclick="showPublicWebsite()">Back to Public Site</button>
+        </div>
+
+        <!-- Staff Applications Page - UPDATED WITH YOUR FORM IDs -->
+        <div id="staff-applications" class="staff-section">
+            <h2>Application Submissions</h2>
+            <div class="actions-grid">
+                <div class="action-card">
+                    <div class="action-icon">🏠</div>
+                    <h3 class="action-title">Residential Application</h3>
+                    <button class="btn-action" onclick="openGoogleForm('1aoIUcOVC6v715Q7HiUWKHY1YEgho1jA1MSj52vr7Vhw')">SUBMIT FORM</button>
+                </div>
+                <div class="action-card">
+                    <div class="action-icon">🏢</div>
+                    <h3 class="action-title">Business Application</h3>
+                    <button class="btn-action" onclick="openGoogleForm('1b6UQwG0hANUCLTyaxJ1JpAL32VoqNxdJ57LGGG9_x2Y')">SUBMIT FORM</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Staff Repair Management Page - UPDATED -->
+        <div id="staff-repairs" class="staff-section" style="display: none;">
+            <h2>Repair Management</h2>
+            <div class="actions-grid">
+                <div class="action-card">
+                    <div class="action-icon">🔧</div>
+                    <h3 class="action-title">Submit Repair Request</h3>
+                    <button class="btn-action" onclick="openGoogleForm('1oIm8D5XNzvFnRC5RKYlaWzS6zO6lWryzNhAhJqouvjU')">SUBMIT REQUEST</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Staff Billing Page - UPDATED -->
+        <div id="staff-billing" class="staff-section" style="display: none;">
+            <h2>Billing & Collections</h2>
+            <div class="actions-grid">
+                <div class="action-card">
+                    <div class="action-icon">💰</div>
+                    <h3 class="action-title">Billing & Collection</h3>
+                    <button class="btn-action" onclick="openGoogleForm('1hfS2r8Y40OeCeXkUsTUVjexpYUkqi-MSrgIS_FkF5Go')">SUBMIT FORM</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Staff Status Updates Page - UPDATED -->
+        <div id="staff-updates" class="staff-section" style="display: none;">
+            <h2>Status Updates</h2>
+            <div class="actions-grid">
+                <div class="action-card">
+                    <div class="action-icon">⚡</div>
+                    <h3 class="action-title">Installation Update</h3>
+                    <button class="btn-action" onclick="openGoogleForm('19noADumQZgFDXKogjjCK3iOTUVLL2aKCaSxUUhB8WlQ')">UPDATE STATUS</button>
+                </div>
+                <div class="action-card">
+                    <div class="action-icon">🛠️</div>
+                    <h3 class="action-title">Repair Update</h3>
+                    <button class="btn-action" onclick="openGoogleForm('1Y2VuulkGChwG0wFg1Kd4dl0rPAIrPG1zxMWeP5ZOurw')">UPDATE STATUS</button>
+                </div>
+                <div class="action-card">
+                    <div class="action-icon">✅</div>
+                    <h3 class="action-title">Manager Approval</h3>
+                    <button class="btn-action" onclick="openGoogleForm('1PpOCQf4HZaUEyrYOSIJAZNSVd0DVHvE45r8Vc-574Lc')">APPROVE/REJECT</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Staff Reports Page -->
+        <div id="staff-reports" class="staff-section" style="display: none;">
+            <h2>Reports Dashboard</h2>
+            <div class="form-container">
+                <h3>Performance Reports</h3>
+                <div style="text-align: center; padding: 2rem;">
+                    <p>📊 Reports dashboard will display charts and analytics from Google Sheets data</p>
+                    <p>• Application Conversion Rates</p>
+                    <p>• Repair Completion Metrics</p>
+                    <p>• Revenue Collection Reports</p>
+                    <p>• Agent Performance Tracking</p>
+                    <button class="btn-action" onclick="openGoogleSheets()" style="margin-top: 20px;">Open Google Sheets</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Embedded Form Modal -->
+    <div id="embedded-form-modal" class="modal">
+        <div class="modal-content embedded-form-modal">
+            <span class="close-modal" onclick="closeModal('embedded-form-modal')">&times;</span>
+            <h2 class="modal-title" id="embedded-form-title">Google Form</h2>
+            <iframe id="embedded-form-iframe" class="embedded-form-container" src=""></iframe>
+        </div>
+    </div>
+
+    <!-- Staff Login Modal -->
+    <div id="staff-login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('staff-login-modal')">&times;</span>
+            <h2 class="modal-title">Staff Portal Login</h2>
+            <form id="staff-login-form">
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" name="password" required>
+                </div>
+                <button type="submit" class="btn-submit">Login to Portal</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Navigation between public and staff sites
+        function showPublicWebsite() {
+            document.getElementById('public-website').style.display = 'block';
+            document.getElementById('staff-portal').style.display = 'none';
+        }
+
+        function showStaffPortal() {
+            document.getElementById('public-website').style.display = 'none';
+            document.getElementById('staff-portal').style.display = 'block';
+            showStaffPage('applications');
+        }
+
+        function showStaffPage(page) {
+            // Hide all staff sections
+            document.querySelectorAll('.staff-section').forEach(section => {
+                section.style.display = 'none';
+            });
+
+            // Show selected section
+            document.getElementById('staff-' + page).style.display = 'block';
+
+            // Update active nav button
+            document.querySelectorAll('.staff-nav-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+
+        // NEW: Google Forms Integration
+        function openGoogleForm(formId) {
+            const formUrl = `https://docs.google.com/forms/d/e/${formId}/viewform?embedded=true`;
+            document.getElementById('embedded-form-iframe').src = formUrl;
+            document.getElementById('embedded-form-modal').style.display = 'flex';
+        }
+
+        function openGoogleSheets() {
+            window.open('https://docs.google.com/spreadsheets/d/1BVYQb3kQVKdd2gIQ2d-81isiEvYXo2DprannGl6FNBw/edit', '_blank');
+        }
+
+        // Modal Functions
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            // Clear iframe when closing
+            if (modalId === 'embedded-form-modal') {
+                document.getElementById('embedded-form-iframe').src = '';
+            }
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modals = document.getElementsByClassName('modal');
+            for (let i = 0; i < modals.length; i++) {
+                if (event.target == modals[i]) {
+                    modals[i].style.display = 'none';
+                    // Clear iframe when closing
+                    document.getElementById('embedded-form-iframe').src = '';
+                }
+            }
+        }
+
+        // Staff Login (Enhanced with multiple users)
+        const STAFF_CREDENTIALS = {
+            // Field Agents (20)
+            "staff1": "password1", "staff2": "password2", "staff3": "password3",
+            "staff4": "password4", "staff5": "password5", "staff6": "password6",
+            "staff7": "password7", "staff8": "password8", "staff9": "password9",
+            "staff10": "password10", "staff11": "password11", "staff12": "password12",
+            "staff13": "password13", "staff14": "password14", "staff15": "password15",
+            "staff16": "password16", "staff17": "password17", "staff18": "password18",
+            "staff19": "password19", "staff20": "password20",
+            
+            // Admin Staff (10)  
+            "admin1": "adminpass1", "admin2": "adminpass2", "admin3": "adminpass3",
+            "admin4": "adminpass4", "admin5": "adminpass5", "admin6": "adminpass6",
+            "admin7": "adminpass7", "admin8": "adminpass8", "admin9": "adminpass9",
+            "admin10": "adminpass10",
+            
+            // Managers (5)
+            "manager1": "managerpass1", "manager2": "managerpass2", "manager3": "managerpass3",
+            "manager4": "managerpass4", "manager5": "managerpass5",
+            
+            // Owners (3)
+            "owner1": "ownerpass1", "owner2": "ownerpass2", "owner3": "ownerpass3"
+        };
+
+        document.getElementById('staff-login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = this.elements.username.value;
+            const password = this.elements.password.value;
+
+            if (STAFF_CREDENTIALS[username] === password) {
+                closeModal('staff-login-modal');
+                showStaffPortal();
+                this.reset();
+            } else {
+                alert('Invalid credentials. Try: staff1/password1 or admin1/adminpass1');
+            }
+        });
+
+        function showStaffLogin() {
+            document.getElementById('staff-login-modal').style.display = 'flex';
+        }
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
