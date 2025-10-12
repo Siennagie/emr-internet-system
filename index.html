@@ -141,7 +141,7 @@
 
         .actions-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
             max-width: 900px;
             margin: 0 auto;
@@ -158,7 +158,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            min-height: 220px;
+            min-height: 240px; /* Increased height for better alignment */
             transition: all 0.3s ease;
         }
 
@@ -177,13 +177,17 @@
             font-weight: 600;
             margin-bottom: 1rem;
             color: var(--text-dark);
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .btn-action {
             background: var(--primary-blue);
             color: white;
             border: none;
-            padding: 12px 24px;
+            padding: 14px 24px;
             border-radius: 8px;
             font-weight: 600;
             cursor: pointer;
@@ -192,11 +196,13 @@
             display: inline-block;
             width: 100%;
             font-size: 1rem;
+            margin-top: auto;
         }
 
         .btn-action:hover {
             background: var(--primary-dark);
             transform: translateY(-2px);
+            color: white;
         }
 
         /* Plans Section */
@@ -296,11 +302,14 @@
             cursor: pointer;
             transition: all 0.3s;
             width: 100%;
+            text-decoration: none;
+            display: inline-block;
         }
 
         .btn-select:hover {
             background: var(--primary-dark);
             transform: translateY(-2px);
+            color: white;
         }
 
         /* Features Section */
@@ -577,33 +586,41 @@
             .nav-links {
                 display: none;
             }
+
             .hero h1 {
                 font-size: 2rem;
             }
+
             .plans-grid {
                 flex-direction: column;
                 align-items: center;
             }
+
             .plan-card {
                 max-width: 100%;
                 width: 100%;
             }
+
             .plan-card.best-value {
                 transform: none;
             }
+
             .features-grid {
                 grid-template-columns: 1fr;
             }
+
             .contact-info {
                 flex-direction: column;
                 gap: 1rem;
             }
+
             .actions-grid {
                 grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
+
 <body>
     <!-- Background Elements -->
     <div class="network-bg"></div>
@@ -645,17 +662,17 @@
                 <div class="action-card">
                     <div class="action-icon">🚀</div>
                     <h3 class="action-title">Apply for Internet</h3>
-                    <a href="https://forms.gle/7xcAnoEQdiVWMjq57" target="_blank" class="btn-action">APPLY NOW</a>
+                    <a href="https://forms.gle/7xcAnoEQdiVWMjq57" target="_blank" rel="noopener noreferrer" class="btn-action">APPLY NOW</a>
                 </div>
                 <div class="action-card">
                     <div class="action-icon">🔧</div>
                     <h3 class="action-title">Request Repair</h3>
-                    <a href="https://forms.gle/1CMTsPpNt2wsyHjb6" target="_blank" class="btn-action">REQUEST REPAIR</a>
+                    <a href="https://forms.gle/1CMTsPpNt2wsyHjb6" target="_blank" rel="noopener noreferrer" class="btn-action">REQUEST REPAIR</a>
                 </div>
                 <div class="action-card">
                     <div class="action-icon">💳</div>
                     <h3 class="action-title">Submit Proof of Payment</h3>
-                    <a href="https://forms.gle/LPvxnZfNVquiGwcQ8" target="_blank" class="btn-action">SUBMIT PAYMENT</a>
+                    <a href="https://forms.gle/LPvxnZfNVquiGwcQ8" target="_blank" rel="noopener noreferrer" class="btn-action">SUBMIT PAYMENT</a>
                 </div>
             </div>
         </section>
@@ -668,28 +685,28 @@
                 <div class="plan-card">
                     <div class="plan-speed">55MBPS</div>
                     <div class="plan-price">₱999<span>/month</span></div>
-                    <a href="https://forms.gle/7xcAnoEQdiVWMjq57" target="_blank" class="btn-select">SELECT PLAN</a>
+                    <a href="https://forms.gle/7xcAnoEQdiVWMjq57" target="_blank" rel="noopener noreferrer" class="btn-select">SELECT PLAN</a>
                 </div>
                 <div class="plan-card best-value">
                     <div class="best-value-badge">MOST POPULAR</div>
                     <div class="plan-speed">105MBPS</div>
                     <div class="plan-price">₱1,299<span>/month</span></div>
-                    <a href="https://forms.gle/7xcAnoEQdiVWMjq57" target="_blank" class="btn-select">SELECT PLAN</a>
+                    <a href="https://forms.gle/7xcAnoEQdiVWMjq57" target="_blank" rel="noopener noreferrer" class="btn-select">SELECT PLAN</a>
                 </div>
                 <div class="plan-card">
                     <div class="plan-speed">155MBPS</div>
                     <div class="plan-price">₱1,499<span>/month</span></div>
-                    <a href="https://forms.gle/7xcAnoEQdiVWMjq57" target="_blank" class="btn-select">SELECT PLAN</a>
+                    <a href="https://forms.gle/7xcAnoEQdiVWMjq57" target="_blank" rel="noopener noreferrer" class="btn-select">SELECT PLAN</a>
                 </div>
                 <div class="plan-card">
                     <div class="plan-speed">205MBPS</div>
                     <div class="plan-price">₱1,999<span>/month</span></div>
-                    <a href="https://forms.gle/7xcAnoEQdiVWMjq57" target="_blank" class="btn-select">SELECT PLAN</a>
+                    <a href="https://forms.gle/7xcAnoEQdiVWMjq57" target="_blank" rel="noopener noreferrer" class="btn-select">SELECT PLAN</a>
                 </div>
                 <div class="plan-card">
                     <div class="plan-speed">305MBPS</div>
                     <div class="plan-price">₱2,499<span>/month</span></div>
-                    <a href="https://forms.gle/7xcAnoEQdiVWMjq57" target="_blank" class="btn-select">SELECT PLAN</a>
+                    <a href="https://forms.gle/7xcAnoEQdiVWMjq57" target="_blank" rel="noopener noreferrer" class="btn-select">SELECT PLAN</a>
                 </div>
             </div>
         </section>
@@ -738,7 +755,7 @@
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
-                        <span>emr.internetservices@gmail.com</span>
+                        <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c4a1a9b6eaadaab0a1b6aaa1b0b7a1b6b2ada7a1b784a3a9a5ada8eaa7aba9">[email&#160;protected]</a></span>
                     </div>
                 </div>
             </div>
@@ -765,7 +782,7 @@
             <h1><i class="fas fa-lock"></i> EMR Staff Portal</h1>
             <p>Internal Management System</p>
         </div>
-        
+
         <div class="staff-nav">
             <button class="staff-nav-btn active" onclick="showStaffPage('applications')">Applications</button>
             <button class="staff-nav-btn" onclick="showStaffPage('repairs')">Repair Management</button>
@@ -782,12 +799,12 @@
                 <div class="action-card">
                     <div class="action-icon">🏠</div>
                     <h3 class="action-title">Residential Application</h3>
-                    <a href="https://forms.gle/kHAwRJr465smMkDT7" target="_blank" class="btn-action">SUBMIT FORM</a>
+                    <a href="https://forms.gle/kHAwRJr465smMkDT7" target="_blank" rel="noopener noreferrer" class="btn-action">SUBMIT FORM</a>
                 </div>
                 <div class="action-card">
                     <div class="action-icon">🏢</div>
                     <h3 class="action-title">Business Application</h3>
-                    <a href="https://forms.gle/fhQKXqpN6VhN1FqE8" target="_blank" class="btn-action">SUBMIT FORM</a>
+                    <a href="https://forms.gle/fhQKXqpN6VhN1FqE8" target="_blank" rel="noopener noreferrer" class="btn-action">SUBMIT FORM</a>
                 </div>
             </div>
         </div>
@@ -799,7 +816,7 @@
                 <div class="action-card">
                     <div class="action-icon">🔧</div>
                     <h3 class="action-title">Submit Repair Request</h3>
-                    <a href="https://forms.gle/utLssZeX72pJxtux5" target="_blank" class="btn-action">SUBMIT REQUEST</a>
+                    <a href="https://forms.gle/utLssZeX72pJxtux5" target="_blank" rel="noopener noreferrer" class="btn-action">SUBMIT REQUEST</a>
                 </div>
             </div>
         </div>
@@ -811,7 +828,7 @@
                 <div class="action-card">
                     <div class="action-icon">💰</div>
                     <h3 class="action-title">Billing & Collection</h3>
-                    <a href="https://forms.gle/NJCwLcsuaCb9pUPF7" target="_blank" class="btn-action">SUBMIT FORM</a>
+                    <a href="https://forms.gle/NJCwLcsuaCb9pUPF7" target="_blank" rel="noopener noreferrer" class="btn-action">SUBMIT FORM</a>
                 </div>
             </div>
         </div>
@@ -823,17 +840,17 @@
                 <div class="action-card">
                     <div class="action-icon">⚡</div>
                     <h3 class="action-title">Installation Update</h3>
-                    <a href="https://forms.gle/hyrvTofPwBPXpdr56" target="_blank" class="btn-action">UPDATE STATUS</a>
+                    <a href="https://forms.gle/hyrvTofPwBPXpdr56" target="_blank" rel="noopener noreferrer" class="btn-action">UPDATE STATUS</a>
                 </div>
                 <div class="action-card">
                     <div class="action-icon">🛠️</div>
                     <h3 class="action-title">Repair Update</h3>
-                    <a href="https://forms.gle/oQZDoDdtHCPVBSMW8" target="_blank" class="btn-action">UPDATE STATUS</a>
+                    <a href="https://forms.gle/oQZDoDdtHCPVBSMW8" target="_blank" rel="noopener noreferrer" class="btn-action">UPDATE STATUS</a>
                 </div>
                 <div class="action-card">
                     <div class="action-icon">✅</div>
                     <h3 class="action-title">Manager Approval</h3>
-                    <a href="https://forms.gle/y666a5Tnyv1x67sD9" target="_blank" class="btn-action">APPROVE/REJECT</a>
+                    <a href="https://forms.gle/y666a5Tnyv1x67sD9" target="_blank" rel="noopener noreferrer" class="btn-action">APPROVE/REJECT</a>
                 </div>
             </div>
         </div>
@@ -847,7 +864,7 @@
                 <p>• Repair Completion Metrics</p>
                 <p>• Revenue Collection Reports</p>
                 <p>• Agent Performance Tracking</p>
-                <a href="https://docs.google.com/spreadsheets/d/1BVYQb3kQVKdd2gIQ2d-81isiEvYXo2DprannGl6FNBw/edit" target="_blank" class="btn-action" style="margin-top: 20px; display: inline-block; width: auto; padding: 12px 30px;">Open Google Sheets</a>
+                <a href="https://docs.google.com/spreadsheets/d/1BVYQb3kQVKdd2gIQ2d-81isiEvYXo2DprannGl6FNBw/edit" target="_blank" rel="noopener noreferrer" class="btn-action" style="margin-top: 20px; display: inline-block; width: auto; padding: 12px 30px;">Open Google Sheets</a>
             </div>
         </div>
     </div>
@@ -874,7 +891,7 @@
         </div>
     </div>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Navigation between public and staff sites
         function showPublicWebsite() {
             document.getElementById('public-website').style.display = 'block';
@@ -929,7 +946,7 @@
             "staff16": "password16", "staff17": "password17", "staff18": "password18",
             "staff19": "password19", "staff20": "password20",
             
-            // Admin Staff (10)  
+            // Admin Staff (10)
             "admin1": "adminpass1", "admin2": "adminpass2", "admin3": "adminpass3",
             "admin4": "adminpass4", "admin5": "adminpass5", "admin6": "adminpass6",
             "admin7": "adminpass7", "admin8": "adminpass8", "admin9": "adminpass9",
@@ -974,6 +991,25 @@
                 }
             });
         });
+
+        // Enhanced form link handling with fallback
+        function openFormLink(url) {
+            try {
+                // Try to open in new tab
+                const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
+                
+                // Fallback if popup was blocked
+                if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
+                    // If popup blocked, show alert and try alternative
+                    alert('Popup blocked! Redirecting to the form...');
+                    window.location.href = url;
+                }
+            } catch (error) {
+                console.error('Error opening form:', error);
+                // Final fallback
+                window.location.href = url;
+            }
+        }
     </script>
 </body>
 </html>
