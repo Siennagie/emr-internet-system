@@ -158,7 +158,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            min-height: 240px; /* Increased height for better alignment */
+            min-height: 240px;
             transition: all 0.3s ease;
         }
 
@@ -581,6 +581,14 @@
             margin: 0 auto;
         }
 
+        /* Dashboard Stats */
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin: 0.5rem 0;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .nav-links {
@@ -634,7 +642,6 @@
             </div>
             <nav class="nav-links">
                 <a href="#plans">Internet Plans</a>
-                <a href="#coverage">Coverage</a>
                 <a href="#apply">Apply Now</a>
                 <a href="#support">Support</a>
                 <a href="#" class="staff-login" onclick="showStaffLogin()">
@@ -755,7 +762,7 @@
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
-                        <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c4a1a9b6eaadaab0a1b6aaa1b0b7a1b6b2ada7a1b784a3a9a5ada8eaa7aba9">[email&#160;protected]</a></span>
+                        <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="70151d025e191e0415021e1504031502061913150330171d11191c5e131f1d">[email&#160;protected]</a></span>
                     </div>
                 </div>
             </div>
@@ -772,7 +779,7 @@
 
         <!-- Footer -->
         <footer class="footer">
-            <p>&copy; 2024 EMR Internet Services. Connecting You to What Matters.</p>
+            <p>&copy; 2025 EMR Internet Services. Connecting You to What Matters.</p>
         </footer>
     </div>
 
@@ -855,16 +862,88 @@
             </div>
         </div>
 
-        <!-- Staff Reports Page -->
+        <!-- Enhanced Reports Dashboard -->
         <div id="staff-reports" class="staff-section" style="display: none;">
-            <h2>Reports Dashboard</h2>
-            <div style="text-align: center; padding: 2rem;">
-                <p>📊 Reports dashboard will display charts and analytics from Google Sheets data</p>
-                <p>• Application Conversion Rates</p>
-                <p>• Repair Completion Metrics</p>
-                <p>• Revenue Collection Reports</p>
-                <p>• Agent Performance Tracking</p>
-                <a href="https://docs.google.com/spreadsheets/d/1BVYQb3kQVKdd2gIQ2d-81isiEvYXo2DprannGl6FNBw/edit" target="_blank" rel="noopener noreferrer" class="btn-action" style="margin-top: 20px; display: inline-block; width: auto; padding: 12px 30px;">Open Google Sheets</a>
+            <h2>📊 Live Reports Dashboard</h2>
+            
+            <!-- Quick Stats Cards -->
+            <div class="actions-grid" style="margin-bottom: 2rem;">
+                <div class="action-card">
+                    <div class="action-icon">📝</div>
+                    <h3 class="action-title">Total Applications</h3>
+                    <div class="stat-number" id="total-applications">0</div>
+                    <small>Today</small>
+                </div>
+                <div class="action-card">
+                    <div class="action-icon">🔧</div>
+                    <h3 class="action-title">Pending Repairs</h3>
+                    <div class="stat-number" id="pending-repairs">0</div>
+                    <small>Awaiting action</small>
+                </div>
+                <div class="action-card">
+                    <div class="action-icon">💰</div>
+                    <h3 class="action-title">Revenue Today</h3>
+                    <div class="stat-number" id="revenue-today">₱0</div>
+                    <small>Collections</small>
+                </div>
+                <div class="action-card">
+                    <div class="action-icon">⚡</div>
+                    <h3 class="action-title">Completed Installations</h3>
+                    <div class="stat-number" id="completed-installations">0</div>
+                    <small>Today</small>
+                </div>
+            </div>
+
+            <!-- Customer Search -->
+            <div style="background: white; padding: 2rem; border-radius: 12px; margin-bottom: 2rem;">
+                <h3>🔍 Customer Search</h3>
+                <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                    <input type="text" id="searchInput" placeholder="Enter Account Number, Name, or Phone..." 
+                           style="flex: 1; padding: 12px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 1rem;">
+                    <button onclick="searchCustomer()" 
+                            style="padding: 12px 24px; background: #2563eb; color: white; border: none; border-radius: 8px; cursor: pointer;">
+                        SEARCH
+                    </button>
+                </div>
+                <div id="searchResults" style="margin-top: 1rem;"></div>
+            </div>
+
+            <!-- Agent Performance Table -->
+            <div style="background: white; padding: 2rem; border-radius: 12px; margin-bottom: 2rem;">
+                <h3>👨‍💼 Agent Performance</h3>
+                <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
+                    <thead>
+                        <tr style="background: #f8fafc;">
+                            <th style="padding: 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Agent Name</th>
+                            <th style="padding: 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Applications</th>
+                            <th style="padding: 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Completions</th>
+                            <th style="padding: 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Success Rate</th>
+                        </tr>
+                    </thead>
+                    <tbody id="agent-performance-body">
+                        <!-- Data will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Report Actions -->
+            <div class="actions-grid">
+                <div class="action-card">
+                    <div class="action-icon">📥</div>
+                    <h3 class="action-title">Download CSV Report</h3>
+                    <button class="btn-action" onclick="downloadCSVReport()">EXPORT CSV</button>
+                </div>
+                <div class="action-card">
+                    <div class="action-icon">📄</div>
+                    <h3 class="action-title">Generate PDF Report</h3>
+                    <button class="btn-action" onclick="generatePDFReport()">GENERATE PDF</button>
+                </div>
+                <div class="action-card">
+                    <div class="action-icon">📊</div>
+                    <h3 class="action-title">Live Google Sheets</h3>
+                    <a href="https://docs.google.com/spreadsheets/d/1BVYQb3kQVKdd2gIQ2d-81isiEvYXo2DprannGl6FNBw/edit" 
+                       target="_blank" rel="noopener noreferrer" class="btn-action">OPEN SHEETS</a>
+                </div>
             </div>
         </div>
     </div>
@@ -918,6 +997,11 @@
                 btn.classList.remove('active');
             });
             event.target.classList.add('active');
+
+            // If showing reports page, update dashboard
+            if (page === 'reports') {
+                updateDashboard();
+            }
         }
 
         // Modal Functions
@@ -1010,6 +1094,105 @@
                 window.location.href = url;
             }
         }
+
+        // Customer Search Function
+        function searchCustomer() {
+            const searchTerm = document.getElementById('searchInput').value.trim();
+            const resultsDiv = document.getElementById('searchResults');
+            
+            if (!searchTerm) {
+                resultsDiv.innerHTML = '<p style="color: #dc2626;">Please enter search term</p>';
+                return;
+            }
+            
+            // Mock search results for demo
+            const mockResults = [
+                { accountNumber: 'EMR-LP1-NP2-P5-SANTOS', name: 'Maria Santos', phone: '09171234567', status: 'Active' },
+                { accountNumber: 'EMR-LP76-NP7-P1-CRUZ', name: 'Juan Cruz', phone: '09176543210', status: 'Pending' }
+            ].filter(customer => 
+                customer.accountNumber.includes(searchTerm) || 
+                customer.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                customer.phone.includes(searchTerm)
+            );
+            
+            if (mockResults.length > 0) {
+                let html = '<h4>Search Results:</h4>';
+                mockResults.forEach(customer => {
+                    html += `
+                        <div style="border: 1px solid #e5e7eb; padding: 1rem; border-radius: 8px; margin-bottom: 0.5rem;">
+                            <strong>${customer.accountNumber}</strong><br>
+                            <span>${customer.name} • ${customer.phone}</span><br>
+                            <span style="color: ${customer.status === 'Active' ? '#059669' : '#d97706'}">${customer.status}</span>
+                        </div>
+                    `;
+                });
+                resultsDiv.innerHTML = html;
+            } else {
+                resultsDiv.innerHTML = '<p>No customers found matching your search.</p>';
+            }
+        }
+
+        function downloadCSVReport() {
+            alert('📥 This would download a CSV report from Google Sheets\n\nFor demo: Reports are available in Google Sheets');
+        }
+
+        function generatePDFReport() {
+            alert('📄 This would generate a PDF performance report\n\nFor demo: Use Google Sheets export feature');
+        }
+    </script>
+
+    <!-- Real-time Dashboard Script -->
+    <script>
+        // Real-time Dashboard Updates
+        async function updateDashboard() {
+            try {
+                // This would connect to your Google Apps Script web app
+                // For now, we'll use mock data for demo
+                const mockData = {
+                    totalApplications: Math.floor(Math.random() * 50) + 10,
+                    pendingRepairs: Math.floor(Math.random() * 20) + 5,
+                    revenueToday: '₱' + (Math.floor(Math.random() * 50000) + 10000).toLocaleString(),
+                    completedInstallations: Math.floor(Math.random() * 15) + 3,
+                    agentPerformance: [
+                        { name: 'Staff 1', applications: 8, completions: 6 },
+                        { name: 'Staff 2', applications: 12, completions: 9 },
+                        { name: 'Staff 3', applications: 5, completions: 4 }
+                    ]
+                };
+                
+                // Update dashboard counters
+                document.getElementById('total-applications').textContent = mockData.totalApplications;
+                document.getElementById('pending-repairs').textContent = mockData.pendingRepairs;
+                document.getElementById('revenue-today').textContent = mockData.revenueToday;
+                document.getElementById('completed-installations').textContent = mockData.completedInstallations;
+                
+                // Update agent performance table
+                updateAgentTable(mockData.agentPerformance);
+                
+            } catch (error) {
+                console.log('Dashboard update failed:', error);
+            }
+        }
+
+        function updateAgentTable(agents) {
+            const tbody = document.getElementById('agent-performance-body');
+            tbody.innerHTML = '';
+            
+            agents.forEach(agent => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td style="padding: 8px; border-bottom: 1px solid #e5e7eb;">${agent.name}</td>
+                    <td style="padding: 8px; border-bottom: 1px solid #e5e7eb;">${agent.applications}</td>
+                    <td style="padding: 8px; border-bottom: 1px solid #e5e7eb;">${agent.completions}</td>
+                    <td style="padding: 8px; border-bottom: 1px solid #e5e7eb;">${Math.round((agent.completions / agent.applications) * 100)}%</td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        // Update dashboard every 30 seconds
+        setInterval(updateDashboard, 30000);
+        updateDashboard(); // Initial load
     </script>
 </body>
 </html>
