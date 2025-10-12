@@ -132,7 +132,7 @@
             opacity: 0.9;
         }
 
-        /* Customer Actions Section - FIXED LAYOUT */
+        /* Customer Actions Section - FIXED ALIGNMENT */
         .customer-actions {
             padding: 3rem 2rem;
             background: white;
@@ -140,30 +140,26 @@
         }
 
         .actions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
             max-width: 900px;
             margin: 0 auto;
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            flex-wrap: wrap;
             align-items: stretch;
         }
 
         .action-card {
             background: white;
-            border-radius: 10px;
-            padding: 1.5rem;
+            border-radius: 12px;
+            padding: 2rem;
             text-align: center;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             border: 1px solid var(--border);
-            transition: all 0.3s ease;
-            flex: 1;
-            min-width: 180px;
-            max-width: 220px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            height: 100%;
+            min-height: 220px;
+            transition: all 0.3s ease;
         }
 
         .action-card:hover {
@@ -172,14 +168,14 @@
         }
 
         .action-icon {
-            font-size: 2.2rem;
+            font-size: 3rem;
             margin-bottom: 1rem;
         }
 
         .action-title {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             font-weight: 600;
-            margin-bottom: 0.8rem;
+            margin-bottom: 1rem;
             color: var(--text-dark);
         }
 
@@ -187,13 +183,15 @@
             background: var(--primary-blue);
             color: white;
             border: none;
-            padding: 0.7rem 1.5rem;
-            border-radius: 6px;
+            padding: 12px 24px;
+            border-radius: 8px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
             width: 100%;
-            margin-top: auto;
+            font-size: 1rem;
         }
 
         .btn-action:hover {
@@ -568,6 +566,12 @@
             background: var(--accent-teal);
         }
 
+        /* Staff Sections */
+        .staff-section {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .nav-links {
@@ -595,12 +599,7 @@
                 gap: 1rem;
             }
             .actions-grid {
-                flex-direction: column;
-                align-items: center;
-            }
-            .action-card {
-                max-width: 100%;
-                width: 100%;
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -638,25 +637,25 @@
             </div>
         </section>
 
-        <!-- Customer Actions Section - UPDATED WITH YOUR FORM IDs -->
-        <section class="customer-actions">
+        <!-- Customer Actions Section - FIXED WITH CORRECT LINKS -->
+        <section class="customer-actions" id="apply">
             <h2 class="section-title">Customer Services</h2>
             <p class="section-subtitle">Quick access to our most requested services</p>
             <div class="actions-grid">
                 <div class="action-card">
                     <div class="action-icon">🚀</div>
                     <h3 class="action-title">Apply for Internet</h3>
-                    <button class="btn-action" onclick="openGoogleForm('1F-S_wOZ5ZAaR6r7vRNwlecJlb8ZOeBqxJ86xPlutIBc')">APPLY NOW</button>
+                    <a href="https://forms.gle/7xcAnoEQdiVWMjq57" target="_blank" class="btn-action">APPLY NOW</a>
                 </div>
                 <div class="action-card">
                     <div class="action-icon">🔧</div>
                     <h3 class="action-title">Request Repair</h3>
-                    <button class="btn-action" onclick="openGoogleForm('1v3OZPqX6lN4Jd82guQRpoTQZZbVplnC1EmTi5K1pxUE')">REQUEST REPAIR</button>
+                    <a href="https://forms.gle/1CMTsPpNt2wsyHjb6" target="_blank" class="btn-action">REQUEST REPAIR</a>
                 </div>
                 <div class="action-card">
                     <div class="action-icon">💳</div>
                     <h3 class="action-title">Submit Proof of Payment</h3>
-                    <button class="btn-action" onclick="openGoogleForm('1uokUlKL3zmuufCfg47FjEBSWO326Vg487s7XCXyzUW0')">SUBMIT PAYMENT</button>
+                    <a href="https://forms.gle/LPvxnZfNVquiGwcQ8" target="_blank" class="btn-action">SUBMIT PAYMENT</a>
                 </div>
             </div>
         </section>
@@ -666,36 +665,31 @@
             <h2 class="section-title">BEST VALUE</h2>
             <p class="section-subtitle">Choose the perfect plan for your needs</p>
             <div class="plans-grid">
-                <!-- Plan 1 -->
                 <div class="plan-card">
                     <div class="plan-speed">55MBPS</div>
                     <div class="plan-price">₱999<span>/month</span></div>
-                    <button class="btn-select" onclick="openGoogleForm('1F-S_wOZ5ZAaR6r7vRNwlecJlb8ZOeBqxJ86xPlutIBc')">SELECT PLAN</button>
+                    <a href="https://forms.gle/7xcAnoEQdiVWMjq57" target="_blank" class="btn-select">SELECT PLAN</a>
                 </div>
-                <!-- Plan 2 - Best Value -->
                 <div class="plan-card best-value">
                     <div class="best-value-badge">MOST POPULAR</div>
                     <div class="plan-speed">105MBPS</div>
                     <div class="plan-price">₱1,299<span>/month</span></div>
-                    <button class="btn-select" onclick="openGoogleForm('1F-S_wOZ5ZAaR6r7vRNwlecJlb8ZOeBqxJ86xPlutIBc')">SELECT PLAN</button>
+                    <a href="https://forms.gle/7xcAnoEQdiVWMjq57" target="_blank" class="btn-select">SELECT PLAN</a>
                 </div>
-                <!-- Plan 3 -->
                 <div class="plan-card">
                     <div class="plan-speed">155MBPS</div>
                     <div class="plan-price">₱1,499<span>/month</span></div>
-                    <button class="btn-select" onclick="openGoogleForm('1F-S_wOZ5ZAaR6r7vRNwlecJlb8ZOeBqxJ86xPlutIBc')">SELECT PLAN</button>
+                    <a href="https://forms.gle/7xcAnoEQdiVWMjq57" target="_blank" class="btn-select">SELECT PLAN</a>
                 </div>
-                <!-- Plan 4 -->
                 <div class="plan-card">
                     <div class="plan-speed">205MBPS</div>
                     <div class="plan-price">₱1,999<span>/month</span></div>
-                    <button class="btn-select" onclick="openGoogleForm('1F-S_wOZ5ZAaR6r7vRNwlecJlb8ZOeBqxJ86xPlutIBc')">SELECT PLAN</button>
+                    <a href="https://forms.gle/7xcAnoEQdiVWMjq57" target="_blank" class="btn-select">SELECT PLAN</a>
                 </div>
-                <!-- Plan 5 -->
                 <div class="plan-card">
                     <div class="plan-speed">305MBPS</div>
                     <div class="plan-price">₱2,499<span>/month</span></div>
-                    <button class="btn-select" onclick="openGoogleForm('1F-S_wOZ5ZAaR6r7vRNwlecJlb8ZOeBqxJ86xPlutIBc')">SELECT PLAN</button>
+                    <a href="https://forms.gle/7xcAnoEQdiVWMjq57" target="_blank" class="btn-select">SELECT PLAN</a>
                 </div>
             </div>
         </section>
@@ -728,7 +722,7 @@
         </section>
 
         <!-- Requirements Section -->
-        <section class="requirements">
+        <section class="requirements" id="support">
             <h2 class="section-title">Application Requirements</h2>
             <div class="requirements-content">
                 <div class="requirements-list">
@@ -781,65 +775,65 @@
             <button class="staff-nav-btn" onclick="showPublicWebsite()">Back to Public Site</button>
         </div>
 
-        <!-- Staff Applications Page - UPDATED WITH YOUR FORM IDs -->
+        <!-- Staff Applications Page -->
         <div id="staff-applications" class="staff-section">
             <h2>Application Submissions</h2>
             <div class="actions-grid">
                 <div class="action-card">
                     <div class="action-icon">🏠</div>
                     <h3 class="action-title">Residential Application</h3>
-                    <button class="btn-action" onclick="openGoogleForm('1aoIUcOVC6v715Q7HiUWKHY1YEgho1jA1MSj52vr7Vhw')">SUBMIT FORM</button>
+                    <a href="https://forms.gle/kHAwRJr465smMkDT7" target="_blank" class="btn-action">SUBMIT FORM</a>
                 </div>
                 <div class="action-card">
                     <div class="action-icon">🏢</div>
                     <h3 class="action-title">Business Application</h3>
-                    <button class="btn-action" onclick="openGoogleForm('1b6UQwG0hANUCLTyaxJ1JpAL32VoqNxdJ57LGGG9_x2Y')">SUBMIT FORM</button>
+                    <a href="https://forms.gle/fhQKXqpN6VhN1FqE8" target="_blank" class="btn-action">SUBMIT FORM</a>
                 </div>
             </div>
         </div>
 
-        <!-- Staff Repair Management Page - UPDATED -->
+        <!-- Staff Repair Management Page -->
         <div id="staff-repairs" class="staff-section" style="display: none;">
             <h2>Repair Management</h2>
             <div class="actions-grid">
                 <div class="action-card">
                     <div class="action-icon">🔧</div>
                     <h3 class="action-title">Submit Repair Request</h3>
-                    <button class="btn-action" onclick="openGoogleForm('1oIm8D5XNzvFnRC5RKYlaWzS6zO6lWryzNhAhJqouvjU')">SUBMIT REQUEST</button>
+                    <a href="https://forms.gle/utLssZeX72pJxtux5" target="_blank" class="btn-action">SUBMIT REQUEST</a>
                 </div>
             </div>
         </div>
 
-        <!-- Staff Billing Page - UPDATED -->
+        <!-- Staff Billing Page -->
         <div id="staff-billing" class="staff-section" style="display: none;">
             <h2>Billing & Collections</h2>
             <div class="actions-grid">
                 <div class="action-card">
                     <div class="action-icon">💰</div>
                     <h3 class="action-title">Billing & Collection</h3>
-                    <button class="btn-action" onclick="openGoogleForm('1hfS2r8Y40OeCeXkUsTUVjexpYUkqi-MSrgIS_FkF5Go')">SUBMIT FORM</button>
+                    <a href="https://forms.gle/NJCwLcsuaCb9pUPF7" target="_blank" class="btn-action">SUBMIT FORM</a>
                 </div>
             </div>
         </div>
 
-        <!-- Staff Status Updates Page - UPDATED -->
+        <!-- Staff Status Updates Page -->
         <div id="staff-updates" class="staff-section" style="display: none;">
             <h2>Status Updates</h2>
             <div class="actions-grid">
                 <div class="action-card">
                     <div class="action-icon">⚡</div>
                     <h3 class="action-title">Installation Update</h3>
-                    <button class="btn-action" onclick="openGoogleForm('19noADumQZgFDXKogjjCK3iOTUVLL2aKCaSxUUhB8WlQ')">UPDATE STATUS</button>
+                    <a href="https://forms.gle/hyrvTofPwBPXpdr56" target="_blank" class="btn-action">UPDATE STATUS</a>
                 </div>
                 <div class="action-card">
                     <div class="action-icon">🛠️</div>
                     <h3 class="action-title">Repair Update</h3>
-                    <button class="btn-action" onclick="openGoogleForm('1Y2VuulkGChwG0wFg1Kd4dl0rPAIrPG1zxMWeP5ZOurw')">UPDATE STATUS</button>
+                    <a href="https://forms.gle/oQZDoDdtHCPVBSMW8" target="_blank" class="btn-action">UPDATE STATUS</a>
                 </div>
                 <div class="action-card">
                     <div class="action-icon">✅</div>
                     <h3 class="action-title">Manager Approval</h3>
-                    <button class="btn-action" onclick="openGoogleForm('1PpOCQf4HZaUEyrYOSIJAZNSVd0DVHvE45r8Vc-574Lc')">APPROVE/REJECT</button>
+                    <a href="https://forms.gle/y666a5Tnyv1x67sD9" target="_blank" class="btn-action">APPROVE/REJECT</a>
                 </div>
             </div>
         </div>
@@ -847,16 +841,13 @@
         <!-- Staff Reports Page -->
         <div id="staff-reports" class="staff-section" style="display: none;">
             <h2>Reports Dashboard</h2>
-            <div class="form-container">
-                <h3>Performance Reports</h3>
-                <div style="text-align: center; padding: 2rem;">
-                    <p>📊 Reports dashboard will display charts and analytics from Google Sheets data</p>
-                    <p>• Application Conversion Rates</p>
-                    <p>• Repair Completion Metrics</p>
-                    <p>• Revenue Collection Reports</p>
-                    <p>• Agent Performance Tracking</p>
-                    <button class="btn-action" onclick="openGoogleSheets()" style="margin-top: 20px;">Open Google Sheets</button>
-                </div>
+            <div style="text-align: center; padding: 2rem;">
+                <p>📊 Reports dashboard will display charts and analytics from Google Sheets data</p>
+                <p>• Application Conversion Rates</p>
+                <p>• Repair Completion Metrics</p>
+                <p>• Revenue Collection Reports</p>
+                <p>• Agent Performance Tracking</p>
+                <a href="https://docs.google.com/spreadsheets/d/1BVYQb3kQVKdd2gIQ2d-81isiEvYXo2DprannGl6FNBw/edit" target="_blank" class="btn-action" style="margin-top: 20px; display: inline-block; width: auto; padding: 12px 30px;">Open Google Sheets</a>
             </div>
         </div>
     </div>
@@ -877,6 +868,9 @@
                 </div>
                 <button type="submit" class="btn-submit">Login to Portal</button>
             </form>
+            <div style="margin-top: 1rem; text-align: center; font-size: 0.9rem; color: var(--text-light);">
+                <p>Try: staff1 / password1</p>
+            </div>
         </div>
     </div>
 
@@ -907,16 +901,6 @@
                 btn.classList.remove('active');
             });
             event.target.classList.add('active');
-        }
-
-        // FIXED: Google Forms Integration - NOW OPENS IN NEW TAB
-        function openGoogleForm(formId) {
-            const formUrl = `https://docs.google.com/forms/d/e/${formId}/viewform`;
-            window.open(formUrl, '_blank');
-        }
-
-        function openGoogleSheets() {
-            window.open('https://docs.google.com/spreadsheets/d/1BVYQb3kQVKdd2gIQ2d-81isiEvYXo2DprannGl6FNBw/edit', '_blank');
         }
 
         // Modal Functions
