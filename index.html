@@ -74,6 +74,11 @@
             gap: 0.5rem;
         }
 
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+
         .nav-links {
             display: flex;
             gap: 2rem;
@@ -589,41 +594,40 @@
             .nav-links {
                 display: none;
             }
-
+            
             .hero h1 {
                 font-size: 2rem;
             }
-
+            
             .plans-grid {
                 flex-direction: column;
                 align-items: center;
             }
-
+            
             .plan-card {
                 max-width: 100%;
                 width: 100%;
             }
-
+            
             .plan-card.best-value {
                 transform: none;
             }
-
+            
             .features-grid {
                 grid-template-columns: 1fr;
             }
-
+            
             .contact-info {
                 flex-direction: column;
                 gap: 1rem;
             }
-
+            
             .actions-grid {
                 grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
-
 <body>
     <!-- Background Elements -->
     <div class="network-bg"></div>
@@ -632,7 +636,8 @@
     <header class="header">
         <div class="nav-container">
             <div class="logo">
-                <i class="fas fa-bolt"></i>
+                <!-- Replace this with your logo image -->
+                <img src="images/logo1.jpg" alt="EMR Internet Services Logo">
                 EMR INTERNET SERVICES
             </div>
             <nav class="nav-links">
@@ -784,7 +789,6 @@
             <h1><i class="fas fa-lock"></i> EMR Staff Portal</h1>
             <p>Internal Management System</p>
         </div>
-
         <div class="staff-nav">
             <button class="staff-nav-btn active" onclick="showStaffPage('applications')">Applications</button>
             <button class="staff-nav-btn" onclick="showStaffPage('repairs')">Repair Management</button>
@@ -965,7 +969,8 @@
         </div>
     </div>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script>
         // Navigation between public and staff sites
         function showPublicWebsite() {
             document.getElementById('public-website').style.display = 'block';
@@ -975,7 +980,7 @@
         function showStaffPortal() {
             document.getElementById('public-website').style.display = 'none';
             document.getElementById('staff-portal').style.display = 'block';
-            showStaffPage('applications');
+            showStaffPage('applications'); // Default to applications page
         }
 
         function showStaffPage(page) {
@@ -983,211 +988,144 @@
             document.querySelectorAll('.staff-section').forEach(section => {
                 section.style.display = 'none';
             });
-
+            
             // Show selected section
             document.getElementById('staff-' + page).style.display = 'block';
-
+            
             // Update active nav button
             document.querySelectorAll('.staff-nav-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
             event.target.classList.add('active');
-
-            // If showing reports page, update dashboard
+            
+            // If showing reports, update the dashboard
             if (page === 'reports') {
-                updateDashboard();
+                updateDashboardStats();
             }
         }
 
-        // Modal Functions
-        function closeModal(modalId) {
-            document.getElementById(modalId).style.display = 'none';
-        }
-
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            const modals = document.getElementsByClassName('modal');
-            for (let i = 0; i < modals.length; i++) {
-                if (event.target == modals[i]) {
-                    modals[i].style.display = 'none';
-                }
-            }
-        }
-
-        // Staff Login (Enhanced with multiple users)
-        const STAFF_CREDENTIALS = {
-            // Field Agents (20)
-            "staff1": "password1", "staff2": "password2", "staff3": "password3",
-            "staff4": "password4", "staff5": "password5", "staff6": "password6",
-            "staff7": "password7", "staff8": "password8", "staff9": "password9",
-            "staff10": "password10", "staff11": "password11", "staff12": "password12",
-            "staff13": "password13", "staff14": "password14", "staff15": "password15",
-            "staff16": "password16", "staff17": "password17", "staff18": "password18",
-            "staff19": "password19", "staff20": "password20",
-            
-            // Admin Staff (10)
-            "admin1": "adminpass1", "admin2": "adminpass2", "admin3": "adminpass3",
-            "admin4": "adminpass4", "admin5": "adminpass5", "admin6": "adminpass6",
-            "admin7": "adminpass7", "admin8": "adminpass8", "admin9": "adminpass9",
-            "admin10": "adminpass10",
-            
-            // Managers (5)
-            "manager1": "managerpass1", "manager2": "managerpass2", "manager3": "managerpass3",
-            "manager4": "managerpass4", "manager5": "managerpass5",
-            
-            // Owners (3)
-            "owner1": "ownerpass1", "owner2": "ownerpass2", "owner3": "ownerpass3"
-        };
-
-        document.getElementById('staff-login-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const username = this.elements.username.value;
-            const password = this.elements.password.value;
-
-            if (STAFF_CREDENTIALS[username] === password) {
-                closeModal('staff-login-modal');
-                showStaffPortal();
-                this.reset();
-            } else {
-                alert('Invalid credentials. Try: staff1/password1 or admin1/adminpass1');
-            }
-        });
-
+        // Modal functions
         function showStaffLogin() {
             document.getElementById('staff-login-modal').style.display = 'flex';
         }
 
-        // Smooth scroll for navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Enhanced form link handling with fallback
-        function openFormLink(url) {
-            try {
-                // Try to open in new tab
-                const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
-                
-                // Fallback if popup was blocked
-                if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
-                    // If popup blocked, show alert and try alternative
-                    alert('Popup blocked! Redirecting to the form...');
-                    window.location.href = url;
-                }
-            } catch (error) {
-                console.error('Error opening form:', error);
-                // Final fallback
-                window.location.href = url;
-            }
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
         }
 
-        // Customer Search Function
+        // Staff login form handler
+        document.getElementById('staff-login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = this.username.value;
+            const password = this.password.value;
+            
+            // Simple authentication (in a real app, this would be server-side)
+            if ((username === 'staff1' && password === 'password1') || 
+                (username === 'admin' && password === 'admin123')) {
+                closeModal('staff-login-modal');
+                showStaffPortal();
+            } else {
+                alert('Invalid credentials. Try: staff1 / password1');
+            }
+        });
+
+        // Dashboard Statistics
+        function updateDashboardStats() {
+            // Simulate live data updates
+            document.getElementById('total-applications').textContent = Math.floor(Math.random() * 20) + 5;
+            document.getElementById('pending-repairs').textContent = Math.floor(Math.random() * 15) + 2;
+            document.getElementById('revenue-today').textContent = '₱' + (Math.floor(Math.random() * 50000) + 10000).toLocaleString();
+            document.getElementById('completed-installations').textContent = Math.floor(Math.random() * 10) + 1;
+            
+            // Update agent performance table
+            const agents = ['Juan Dela Cruz', 'Maria Santos', 'Pedro Reyes', 'Ana Lim'];
+            const tableBody = document.getElementById('agent-performance-body');
+            tableBody.innerHTML = '';
+            
+            agents.forEach(agent => {
+                const apps = Math.floor(Math.random() * 15) + 5;
+                const completions = Math.floor(Math.random() * apps) + 1;
+                const successRate = Math.round((completions / apps) * 100);
+                
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td style="padding: 12px; border-bottom: 1px solid #e5e7eb;">${agent}</td>
+                    <td style="padding: 12px; border-bottom: 1px solid #e5e7eb;">${apps}</td>
+                    <td style="padding: 12px; border-bottom: 1px solid #e5e7eb;">${completions}</td>
+                    <td style="padding: 12px; border-bottom: 1px solid #e5e7eb;">
+                        <span style="color: ${successRate >= 80 ? '#10b981' : successRate >= 60 ? '#f59e0b' : '#ef4444'}">
+                            ${successRate}%
+                        </span>
+                    </td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Customer Search Functionality
         function searchCustomer() {
             const searchTerm = document.getElementById('searchInput').value.trim();
             const resultsDiv = document.getElementById('searchResults');
             
             if (!searchTerm) {
-                resultsDiv.innerHTML = '<p style="color: #dc2626;">Please enter search term</p>';
+                resultsDiv.innerHTML = '<p style="color: #6b7280; text-align: center;">Please enter a search term</p>';
                 return;
             }
             
-            // Mock search results for demo
-            const mockResults = [
-                { accountNumber: 'EMR-LP1-NP2-P5-SANTOS', name: 'Maria Santos', phone: '09171234567', status: 'Active' },
-                { accountNumber: 'EMR-LP76-NP7-P1-CRUZ', name: 'Juan Cruz', phone: '09176543210', status: 'Pending' }
-            ].filter(customer => 
-                customer.accountNumber.includes(searchTerm) || 
+            // Simulate search results
+            const customers = [
+                { account: 'ACC-001', name: 'Juan Dela Cruz', phone: '09123456789', status: 'Active', plan: '105MBPS' },
+                { account: 'ACC-045', name: 'Maria Santos', phone: '09198765432', status: 'Pending', plan: '55MBPS' },
+                { account: 'ACC-112', name: 'Pedro Reyes', phone: '09234567890', status: 'Active', plan: '155MBPS' }
+            ];
+            
+            const filtered = customers.filter(customer => 
+                customer.account.includes(searchTerm) || 
                 customer.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
                 customer.phone.includes(searchTerm)
             );
             
-            if (mockResults.length > 0) {
-                let html = '<h4>Search Results:</h4>';
-                mockResults.forEach(customer => {
-                    html += `
-                        <div style="border: 1px solid #e5e7eb; padding: 1rem; border-radius: 8px; margin-bottom: 0.5rem;">
-                            <strong>${customer.accountNumber}</strong><br>
-                            <span>${customer.name} • ${customer.phone}</span><br>
-                            <span style="color: ${customer.status === 'Active' ? '#059669' : '#d97706'}">${customer.status}</span>
-                        </div>
-                    `;
-                });
-                resultsDiv.innerHTML = html;
-            } else {
-                resultsDiv.innerHTML = '<p>No customers found matching your search.</p>';
+            if (filtered.length === 0) {
+                resultsDiv.innerHTML = '<p style="color: #ef4444; text-align: center;">No customers found matching your search</p>';
+                return;
             }
+            
+            let html = '<div style="display: grid; gap: 1rem;">';
+            filtered.forEach(customer => {
+                html += `
+                    <div style="background: #f8fafc; padding: 1rem; border-radius: 8px; border-left: 4px solid #2563eb;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <strong>${customer.name}</strong>
+                                <div style="font-size: 0.9rem; color: #6b7280;">
+                                    ${customer.account} • ${customer.phone} • ${customer.plan}
+                                </div>
+                            </div>
+                            <span style="background: ${customer.status === 'Active' ? '#10b981' : '#f59e0b'}; color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem;">
+                                ${customer.status}
+                            </span>
+                        </div>
+                    </div>
+                `;
+            });
+            html += '</div>';
+            
+            resultsDiv.innerHTML = html;
         }
 
+        // Report Generation Functions
         function downloadCSVReport() {
-            alert('📥 This would download a CSV report from Google Sheets\n\nFor demo: Reports are available in Google Sheets');
+            alert('CSV report download would start here. In a real implementation, this would generate and download a CSV file.');
         }
 
         function generatePDFReport() {
-            alert('📄 This would generate a PDF performance report\n\nFor demo: Use Google Sheets export feature');
-        }
-    </script>
-
-    <!-- Real-time Dashboard Script -->
-    <script>
-        // Real-time Dashboard Updates
-        async function updateDashboard() {
-            try {
-                // This would connect to your Google Apps Script web app
-                // For now, we'll use mock data for demo
-                const mockData = {
-                    totalApplications: Math.floor(Math.random() * 50) + 10,
-                    pendingRepairs: Math.floor(Math.random() * 20) + 5,
-                    revenueToday: '₱' + (Math.floor(Math.random() * 50000) + 10000).toLocaleString(),
-                    completedInstallations: Math.floor(Math.random() * 15) + 3,
-                    agentPerformance: [
-                        { name: 'Staff 1', applications: 8, completions: 6 },
-                        { name: 'Staff 2', applications: 12, completions: 9 },
-                        { name: 'Staff 3', applications: 5, completions: 4 }
-                    ]
-                };
-                
-                // Update dashboard counters
-                document.getElementById('total-applications').textContent = mockData.totalApplications;
-                document.getElementById('pending-repairs').textContent = mockData.pendingRepairs;
-                document.getElementById('revenue-today').textContent = mockData.revenueToday;
-                document.getElementById('completed-installations').textContent = mockData.completedInstallations;
-                
-                // Update agent performance table
-                updateAgentTable(mockData.agentPerformance);
-                
-            } catch (error) {
-                console.log('Dashboard update failed:', error);
-            }
+            alert('PDF report generation would start here. In a real implementation, this would generate and download a PDF file.');
         }
 
-        function updateAgentTable(agents) {
-            const tbody = document.getElementById('agent-performance-body');
-            tbody.innerHTML = '';
-            
-            agents.forEach(agent => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td style="padding: 8px; border-bottom: 1px solid #e5e7eb;">${agent.name}</td>
-                    <td style="padding: 8px; border-bottom: 1px solid #e5e7eb;">${agent.applications}</td>
-                    <td style="padding: 8px; border-bottom: 1px solid #e5e7eb;">${agent.completions}</td>
-                    <td style="padding: 8px; border-bottom: 1px solid #e5e7eb;">${Math.round((agent.completions / agent.applications) * 100)}%</td>
-                `;
-                tbody.appendChild(row);
-            });
-        }
-
-        // Update dashboard every 30 seconds
-        setInterval(updateDashboard, 30000);
-        updateDashboard(); // Initial load
+        // Initialize dashboard when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Any initialization code can go here
+        });
     </script>
 </body>
 </html>
