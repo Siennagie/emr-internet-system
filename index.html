@@ -271,14 +271,19 @@
         .best-value-badge {
             background: var(--accent-teal);
             color: white;
-            padding: 0.5rem 1.5rem;
+            padding: 0.4rem 1.2rem;
             border-radius: 20px;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 600;
             position: absolute;
-            top: -10px;
+            top: -12px;
             left: 50%;
             transform: translateX(-50%);
+            z-index: 10;
+            white-space: nowrap;
+            max-width: 90%;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .plan-speed {
@@ -671,6 +676,90 @@
             }
         }
 
+        /* Responsive - UPDATED FOR MOBILE WITH BOTTOM TEXT */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .nav-container {
+                padding: 1rem;
+            }
+            
+            .logo {
+                font-size: 1.2rem;
+            }
+            
+            .logo img {
+                height: 30px;
+            }
+            
+            .hero {
+                min-height: 400px;
+                padding: 6rem 1rem 2rem;
+                align-items: flex-end; /* Keep text at bottom on mobile */
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .hero-content {
+                padding: 0 1rem;
+                margin-bottom: 2rem; /* Add space at bottom */
+            }
+            
+            .plans-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .plan-card {
+                max-width: 100%;
+                width: 100%;
+            }
+            
+            .plan-card.best-value {
+                transform: none;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .actions-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .section-subtitle {
+                font-size: 1rem;
+            }
+            
+            /* ADD THIS FOR THE BADGE FIX */
+            .best-value-badge {
+                font-size: 0.7rem;
+                padding: 0.3rem 1rem;
+                top: -8px;
+            }
+            
+            .plan-card.best-value {
+                margin-top: 10px;
+            }
+        }
+        
         /* Extra small devices - ENHANCED FOR BETTER LOGO VISIBILITY */
         @media (max-width: 480px) {
             .hero {
@@ -712,6 +801,13 @@
             
             .contact-item {
                 padding: 0.8rem 1rem;
+            }
+            
+            /* ADD THIS FOR THE BADGE FIX */
+            .best-value-badge {
+                font-size: 0.65rem;
+                padding: 0.25rem 0.8rem;
+                top: -6px;
             }
         }
 
@@ -1228,3 +1324,4 @@
     </script>
 </body>
 </html>
+
