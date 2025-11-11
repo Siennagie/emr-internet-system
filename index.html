@@ -110,7 +110,7 @@
             background: var(--primary-dark);
         }
         
-        /* Hero Section */
+        /* Hero Section - UPDATED FOR MOBILE */
         .hero {
             background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), 
                 url('images/Modern_telecommunications_hero background-1.png');
@@ -121,6 +121,9 @@
             min-height: 600px;
             display: flex;
             align-items: flex-end;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
         
         .hero-content {
@@ -143,7 +146,7 @@
             line-height: 1.6;
         }
 
-        /* Customer Actions Section - ORIGINAL WORKING ALIGNMENT */
+        /* Customer Actions Section */
         .customer-actions {
             padding: 3rem 2rem;
             background: white;
@@ -595,14 +598,40 @@
             margin: 0.5rem 0;
         }
 
-        /* Responsive */
+        /* Responsive - UPDATED FOR MOBILE */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
             }
             
+            .nav-container {
+                padding: 1rem;
+            }
+            
+            .logo {
+                font-size: 1.2rem;
+            }
+            
+            .logo img {
+                height: 30px;
+            }
+            
+            .hero {
+                min-height: 400px;
+                padding: 6rem 1rem 2rem;
+                align-items: center;
+            }
+            
             .hero h1 {
-                font-size: 2rem;
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .hero-content {
+                padding: 0 1rem;
             }
             
             .plans-grid {
@@ -630,6 +659,51 @@
             
             .actions-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .section-subtitle {
+                font-size: 1rem;
+            }
+        }
+
+        /* Extra small devices */
+        @media (max-width: 480px) {
+            .hero {
+                min-height: 350px;
+                padding: 5rem 1rem 1.5rem;
+            }
+            
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+            
+            .hero p {
+                font-size: 0.9rem;
+            }
+            
+            .action-card {
+                padding: 1.5rem;
+                min-height: 200px;
+            }
+            
+            .plan-card {
+                padding: 1.5rem 1rem;
+            }
+            
+            .feature-card {
+                padding: 2rem 1.5rem;
+            }
+            
+            .requirements-list {
+                padding: 1.5rem;
+            }
+            
+            .contact-item {
+                padding: 0.8rem 1rem;
             }
         }
     </style>
@@ -666,7 +740,7 @@
             </div>
         </section>
 
-        <!-- Customer Actions Section - ORIGINAL WORKING ALIGNMENT -->
+        <!-- Customer Actions Section -->
         <section class="customer-actions" id="apply">
             <h2 class="section-title">Customer Services</h2>
             <p class="section-subtitle">Quick access to our most requested services</p>
@@ -1134,25 +1208,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
