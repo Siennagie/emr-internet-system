@@ -110,13 +110,20 @@
             background: var(--primary-dark);
         }
 
-        /* Hero Section */
+       /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), 
+                        url('images/Modern_telecommunications_hero background.png');
+            background-size: cover;
+            background-position: center;
             color: white;
             padding: 8rem 2rem 4rem;
             text-align: center;
             position: relative;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .hero-content {
@@ -656,8 +663,13 @@
         <!-- Hero Section -->
         <section class="hero">
             <div class="hero-content">
-                <h1>STAY CONNECTED WITH CONFIDENCE</h1>
-                <p>Experience blazing-fast internet with EMR Internet Services - where reliability meets ultra-speed for your home and business</p>
+                <div class="hero-logo">
+                    <img src="images/logo1.jpg" alt="EMR Telecommunications Logo">
+                </div>
+                <div class="hero-text">
+                    <h1>STAY CONNECTED WITH CONFIDENCE</h1>
+                    <p>Experience blazing-fast internet with EMR Internet Services - where reliability meets ultra-speed for your home and business</p>
+                </div>
             </div>
         </section>
 
@@ -1129,3 +1141,4 @@
     </script>
 </body>
 </html>
+
