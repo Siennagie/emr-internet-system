@@ -110,7 +110,7 @@
             background: var(--primary-dark);
         }
         
-        /* Hero Section - UPDATED FOR MOBILE */
+        /* Hero Section - UPDATED FOR MOBILE WITH BOTTOM TEXT */
         .hero {
             background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), 
                 url('images/Modern_telecommunications_hero background-1.png');
@@ -598,7 +598,7 @@
             margin: 0.5rem 0;
         }
 
-        /* Responsive - UPDATED FOR MOBILE */
+        /* Responsive - UPDATED FOR MOBILE WITH BOTTOM TEXT */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -619,7 +619,7 @@
             .hero {
                 min-height: 400px;
                 padding: 6rem 1rem 2rem;
-                align-items: center;
+                align-items: flex-end; /* Keep text at bottom on mobile */
             }
             
             .hero h1 {
@@ -632,6 +632,7 @@
             
             .hero-content {
                 padding: 0 1rem;
+                margin-bottom: 2rem; /* Add space at bottom */
             }
             
             .plans-grid {
@@ -670,19 +671,26 @@
             }
         }
 
-        /* Extra small devices */
+        /* Extra small devices - ENHANCED FOR BETTER LOGO VISIBILITY */
         @media (max-width: 480px) {
             .hero {
                 min-height: 350px;
                 padding: 5rem 1rem 1.5rem;
+                align-items: flex-end; /* Text at bottom */
             }
             
             .hero h1 {
                 font-size: 1.5rem;
+                margin-bottom: 0.5rem;
             }
             
             .hero p {
                 font-size: 0.9rem;
+                margin-bottom: 0;
+            }
+            
+            .hero-content {
+                margin-bottom: 1.5rem; /* Less space at bottom on very small screens */
             }
             
             .action-card {
@@ -704,6 +712,18 @@
             
             .contact-item {
                 padding: 0.8rem 1rem;
+            }
+        }
+
+        /* Small height devices - ADDITIONAL OPTIMIZATION */
+        @media (max-height: 700px) and (max-width: 768px) {
+            .hero {
+                min-height: 300px;
+                padding: 5rem 1rem 1rem;
+            }
+            
+            .hero-content {
+                margin-bottom: 1rem;
             }
         }
     </style>
