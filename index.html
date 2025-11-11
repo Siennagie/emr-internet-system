@@ -17,13 +17,13 @@
             --background: #ffffff;
             --border: #e5e7eb;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Inter', sans-serif;
             background: var(--background);
@@ -31,7 +31,7 @@
             line-height: 1.6;
             overflow-x: hidden;
         }
-        
+
         .network-bg {
             position: fixed;
             top: 0;
@@ -44,7 +44,7 @@
                 radial-gradient(circle at 40% 40%, rgba(13, 148, 136, 0.05) 0%, transparent 50%);
             z-index: -1;
         }
-        
+
         /* Header Styles */
         .header {
             background: rgba(255, 255, 255, 0.95);
@@ -55,7 +55,7 @@
             top: 0;
             z-index: 1000;
         }
-        
+
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -64,7 +64,7 @@
             justify-content: space-between;
             align-items: center;
         }
-        
+
         .logo {
             font-size: 1.5rem;
             font-weight: 700;
@@ -73,29 +73,29 @@
             align-items: center;
             gap: 0.5rem;
         }
-        
+
         .logo img {
             height: 40px;
             width: auto;
         }
-        
+
         .nav-links {
             display: flex;
             gap: 2rem;
             align-items: center;
         }
-        
+
         .nav-links a {
             text-decoration: none;
             color: var(--text-dark);
             font-weight: 500;
             transition: color 0.3s;
         }
-        
+
         .nav-links a:hover {
             color: var(--primary-blue);
         }
-        
+
         .staff-login {
             background: var(--primary-blue);
             color: white;
@@ -105,47 +105,37 @@
             font-weight: 600;
             transition: all 0.3s;
         }
-        
+
         .staff-login:hover {
             background: var(--primary-dark);
         }
-        
-        /* Hero Section - FIXED */
+
+        /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), 
-                        url('images/Modern_telecommunications_hero background.png');
-            background-size: cover;
-            background-position: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 12rem 2rem 6rem;
+            padding: 8rem 2rem 4rem;
             text-align: center;
             position: relative;
-            min-height: 70vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
-        
+
         .hero-content {
             max-width: 800px;
             margin: 0 auto;
         }
-        
+
         .hero h1 {
-            font-size: 2.5rem;
+            font-size: 3rem;
             font-weight: 700;
             margin-bottom: 1.5rem;
             line-height: 1.2;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
-        
+
         .hero p {
             font-size: 1.2rem;
             margin-bottom: 2rem;
-            opacity: 0.95;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+            opacity: 0.9;
         }
-
 
         /* Customer Actions Section - ORIGINAL WORKING ALIGNMENT */
         .customer-actions {
@@ -664,12 +654,13 @@
     <!-- Main Public Website -->
     <div id="public-website">
         <!-- Hero Section -->
-       <section class="hero">
-    <div class="hero-content">
-        <h1>STAY CONNECTED WITH CONFIDENCE</h1>
-        <p>Experience blazing-fast internet with EMR Internet Services - where reliability meets ultra-speed for your home and business</p>
-    </div>
-    </section>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>STAY CONNECTED WITH CONFIDENCE</h1>
+                <p>Experience blazing-fast internet with EMR Internet Services - where reliability meets ultra-speed for your home and business</p>
+            </div>
+        </section>
+
         <!-- Customer Actions Section - ORIGINAL WORKING ALIGNMENT -->
         <section class="customer-actions" id="apply">
             <h2 class="section-title">Customer Services</h2>
@@ -1138,9 +1129,4 @@
     </script>
 </body>
 </html>
-
-
-
-
-
 
